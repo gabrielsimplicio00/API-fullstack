@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
+  <title>Pessoas cadastradas</title>
+</head>
+<body>
+  <h1>Dados: <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
+  
+  <div class="container">
+    
+      <ul style="list-style: none">
+        <li>ID: <%= umaPessoa._id %> </li>
+        <li>Nome: <%= umaPessoa.nome %> </li>
+        <li>Sobrenome: <%= umaPessoa.sobrenome %> </li>
+        <li>Idade: <%= umaPessoa.idade %> </li>
+        <li>Profissão: <%= umaPessoa.profissao %> </li>
+      </ul>
+    
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    color: white;
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    background-image: linear-gradient(210deg, rgb(159, 159, 159), rgb(87, 87, 87));
+}
+
+h1 {
+    text-align: center;
+}
+
+header .subtitle {
+    text-align: center;
+}
+
+.container {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(63, 63, 63);
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 8px;
+}
+
+ul {
+    flex: 0 1 31%;
+    padding: 15px auto 15px auto;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+}
