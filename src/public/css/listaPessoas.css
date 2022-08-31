@@ -3,22 +3,23 @@
 }
 
 :root {
-    color: white;
     height: 100%;
     width: 100vw;
     overflow-x: hidden;
 }
 
 body {
-    background-image: linear-gradient(210deg, rgb(159, 159, 159), rgb(87, 87, 87));
+    background-image: linear-gradient(210deg, #454d55, #454d55);
 }
 
 h1 {
-    text-align: center;
+    
 }
 
-header .subtitle {
+header .subtitle, h1 {
+    padding-top: 20px;
     text-align: center;
+    color: white;
 }
 
 .container {

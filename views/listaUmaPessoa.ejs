@@ -7,13 +7,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
   <title>Pessoas cadastradas</title>
 </head>
 <body>
-  <h1>Dados: <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
+  <header>
+    <h1>Dados: <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
+    <section class="subtitle">
+      <p>/ - index (cadastrar pessoa)</p>
+      <p>/pessoas - lista todas as pessoas</p>
+    </section>
+  </header>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobreome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Profissão</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= umaPessoa._id %> </th>
+        <td><%= umaPessoa.nome %> </td>
+        <td><%= umaPessoa.sobrenome %> </td>
+        <td><%= umaPessoa.idade %> </td>
+        <td><%= umaPessoa.profissao %> </td>
+      </tr>
+    </tbody>
+  </table>
   
-  <div class="container">
+  <!-- <div class="container">
     
       <ul style="list-style: none">
         <li>ID: <%= umaPessoa._id %> </li>
@@ -23,7 +51,7 @@
         <li>Profissão: <%= umaPessoa.profissao %> </li>
       </ul>
     
-  </div>
+  </div> -->
   
   
 </body>

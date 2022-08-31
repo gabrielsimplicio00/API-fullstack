@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/listaPessoas.css" type="text/css">
   <title>Pessoas cadastradas</title>
 </head>
@@ -19,17 +20,27 @@
       <p>/pessoas/:id - lista uma pessoa por ID</p>
     </section>
   </header>
-  
-  <div class="container">
-    <%pessoasList.forEach((pessoa) => {%>
-      <ul style="list-style: none">
-        <li>ID: <%= pessoa._id %> </li>
-        <li>Nome: <%= pessoa.nome %> </li>
-        <li>Sobrenome: <%= pessoa.sobrenome %> </li>
-        <li>Idade: <%= pessoa.idade %> </li>
-        <li>Profissão: <%= pessoa.profissao %> </li>
-      </ul>
-    <%})%>
-  </div>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobreome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Profissão</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%pessoasList.forEach((pessoa) => {%>
+      <tr>
+        <th scope="row"><%= pessoa._id %> </th>
+        <td><%= pessoa.nome %> </td>
+        <td><%= pessoa.sobrenome %> </td>
+        <td><%= pessoa.idade %> </td>
+        <td><%= pessoa.profissao %> </td>
+      </tr>
+      <%})%>
+    </tbody>
+  </table>
 </body>
 </html>
