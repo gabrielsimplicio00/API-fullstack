@@ -7,21 +7,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <title>API</title>
+    <link rel="stylesheet" type="text/css" href="/css/atualizaPessoaPagina.css" />
+    <title>Atualizar pessoa</title>
 </head>
 <body>
     <header>
-        <h1>Sistema de cadastro de pessoas</h1>
+        <h1>Atualizar dados: (<%= `${pessoa.id} - ${pessoa.nome} ${pessoa.sobrenome}` %>) </h1>
         <section class="subtitle">
+            <p>/ - index (cadastrar pessoa)</p>
             <p>/pessoas - lista todas as pessoas</p>
             <p>/pessoas/:id - lista uma pessoa por ID</p>
-            <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
             <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
         </section>
     </header>
     <div class="form">
-        <form action="/pessoas" method="post">
+        <form action="/pessoas/atualiza" method="post">
+            <div class="input-form">
+                <label for="ID">ID</label>
+                <input class="input-space" type="text" name="id" id="id" required value='<% pessoa.id %>'>
+            </div>
             <div class="input-form">
                 <label for="nome">Nome</label>
                 <input class="input-space" type="text" name="nome" id="nome" required>

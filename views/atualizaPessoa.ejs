@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
+  <title>Pessoa atualizada</title>
 </head>
 <body>
-    
+  <header>
+    <h1>Pessoa atualizada com sucesso: <%= `${pessoaAtt._id}` %> </h1>
+    <section class="subtitle">
+      <p>/ - index (cadastrar pessoa)</p>
+      <p>/pessoas - lista todas as pessoas</p>
+      <p>/pessoas/:id - lista uma pessoa por ID</p>
+      <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
+      <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
+    </section>
+  </header>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobreome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Profissão</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= pessoaAtt._id %> </th>
+        <td><%= pessoaAtt.nome %> </td>
+        <td><%= pessoaAtt.sobrenome %> </td>
+        <td><%= pessoaAtt.idade %> </td>
+        <td><%= pessoaAtt.profissao %> </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
