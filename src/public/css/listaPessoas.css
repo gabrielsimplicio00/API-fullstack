@@ -1,5 +1,6 @@
 * {
     font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
 :root {
@@ -15,7 +16,11 @@ body {
 header .subtitle, h1 {
     padding-top: 20px;
     text-align: center;
-    color: white;
+}
+
+.caminho, .caminho:hover {
+    color: black;
+    text-decoration: none;
 }
 
 .container {

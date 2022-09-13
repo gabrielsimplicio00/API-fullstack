@@ -14,8 +14,12 @@
     <header>
         <h1>Atualizar dados: (<%= `${pessoa.id} - ${pessoa.nome} ${pessoa.sobrenome}` %>) </h1>
         <section class="subtitle">
-            <p>/ - index (cadastrar pessoa)</p>
-            <p>/pessoas - lista todas as pessoas</p>
+            <button>
+                <a href="/" class="caminho">Cadastrar pessoa</a>
+            </button>
+            <button>
+                <a href="/pessoas" class="caminho">Exibir pessoas cadastradas</a>
+            </button>
             <p>/pessoas/:id - lista uma pessoa por ID</p>
             <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
         </section>

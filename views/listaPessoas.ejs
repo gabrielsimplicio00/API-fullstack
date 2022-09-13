@@ -15,7 +15,9 @@
   <header>
     <h1>Pessoas cadastradas</h1>
     <section class="subtitle">
-      <p>/ - index (cadastrar pessoa)</p>
+      <button>
+        <a href="/" class="caminho">Cadastrar pessoa</a>
+      </button>
       <p>/pessoas/:id - lista uma pessoa por ID</p>
       <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
       <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
@@ -28,6 +30,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Sobreome</th>
         <th scope="col">Idade</th>
+        <th scope="col">Email</th>
         <th scope="col">Profissão</th>
       </tr>
     </thead>
@@ -38,6 +41,7 @@
         <td><%= pessoa.nome %> </td>
         <td><%= pessoa.sobrenome %> </td>
         <td><%= pessoa.idade %> </td>
+        <td><%= pessoa.email %> </td>
         <td><%= pessoa.profissao %> </td>
       </tr>
       <%})%>

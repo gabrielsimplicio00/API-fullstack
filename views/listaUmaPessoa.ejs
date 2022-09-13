@@ -15,8 +15,12 @@
   <header>
     <h1>Dados: <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
     <section class="subtitle">
-      <p>/ - index (cadastrar pessoa)</p>
-      <p>/pessoas - lista todas as pessoas</p>
+      <button>
+        <a href="/" class="caminho">Cadastrar pessoa</a>
+      </button>
+      <button>
+        <a href="/pessoas" class="caminho">Exibir pessoas cadastradas</a>
+      </button>
       <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
       <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
     </section>
@@ -29,6 +33,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Sobreome</th>
         <th scope="col">Idade</th>
+        <th scope="col">Email</th>
         <th scope="col">Profissão</th>
       </tr>
     </thead>
@@ -38,6 +43,7 @@
         <td><%= umaPessoa.nome %> </td>
         <td><%= umaPessoa.sobrenome %> </td>
         <td><%= umaPessoa.idade %> </td>
+        <td><%= umaPessoa.email %> </td>
         <td><%= umaPessoa.profissao %> </td>
       </tr>
     </tbody>

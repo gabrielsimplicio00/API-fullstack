@@ -21,6 +21,11 @@ header .subtitle {
     text-align: center;
 }
 
+.caminho {
+    color: black;
+    text-decoration: none;
+}
+
 .atencao {
     color: red;
     text-align: center;
