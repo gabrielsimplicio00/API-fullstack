@@ -7,22 +7,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/atualizaPessoa.css" type="text/css">
   <title>Pessoa atualizada</title>
 </head>
 <body>
   <header>
-    <h1>Pessoa atualizada com sucesso: <%= `${pessoaAtt._id}` %> </h1>
+    <h1>Usuário atualizado com sucesso!</h1>
     <section class="subtitle">
-      <button>
-        <a href="/" class="caminho">Cadastrar pessoa</a>
+      <button class="button1 btn-dark btn-sm">
+        <a href="/" class="caminho">Ir para a página de cadastro</a>
       </button>
-      <button>
+      <button class="button2 btn-dark btn-sm">
         <a href="/pessoas" class="caminho">Exibir pessoas cadastradas</a>
       </button>
-      <p>/pessoas/:id - lista uma pessoa por ID</p>
-      <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
-      <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
+      <form action="/pessoas/deleta" method="post">
+        <input type="hidden" name="idPessoa" id="idPessoa" value='<%= pessoaAtt._id %>'>
+        <button type="submit" class="deleta btn-danger btn-sm">Deletar usuário</button>
+      </form>
     </section>
   </header>
 
@@ -33,6 +35,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Sobreome</th>
         <th scope="col">Idade</th>
+        <th scope="col">Email</th>
         <th scope="col">Profissão</th>
       </tr>
     </thead>
@@ -42,6 +45,7 @@
         <td><%= pessoaAtt.nome %> </td>
         <td><%= pessoaAtt.sobrenome %> </td>
         <td><%= pessoaAtt.idade %> </td>
+        <td><%= pessoaAtt.email %></td>
         <td><%= pessoaAtt.profissao %> </td>
       </tr>
     </tbody>

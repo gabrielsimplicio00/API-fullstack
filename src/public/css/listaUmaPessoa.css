@@ -18,9 +18,45 @@ header .subtitle, h1 {
     color: white;
 }
 
-.caminho, .caminho:hover {
+.subtitle {
+    margin-bottom: 20px;
+}
+
+.form-crud {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 15px;
+}
+
+.input-submit, button {
     color: black;
+    border-radius: 5px;
+}
+
+.button-form {
+    width: 150px;
+    margin-top: 15px;
+}
+
+input {
+    margin: 12px 0 12px 0;
+    color: black;
+}
+
+.caminho, .caminho:hover {
+    color: white;
     text-decoration: none;
+}
+
+.button1 {
+    margin-right: 10px;
+}
+
+.button2 {
+    margin-left: 10px;
 }
 
 .container {

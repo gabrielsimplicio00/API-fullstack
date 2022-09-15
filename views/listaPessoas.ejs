@@ -15,12 +15,26 @@
   <header>
     <h1>Pessoas cadastradas</h1>
     <section class="subtitle">
-      <button>
-        <a href="/" class="caminho">Cadastrar pessoa</a>
+      <button class="btn-dark btn-sm">
+        <a href="/" class="caminho">Ir para a página de cadastro</a>
       </button>
-      <p>/pessoas/:id - lista uma pessoa por ID</p>
-      <p>/pessoas/:id/atualiza - atualiza uma pessoa por ID</p>
-      <p>/pessoas/:id/deleta - deleta uma pessoa por ID</p>
+    </section>
+    <section class="form-crud">
+      <!-- "Selecione o ID da pessoa que deseja ver" -->
+      <form action="/pessoas/exibe" method="post">
+        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
+        <button class="button-form btn-success btn-sm" type="submit">Buscar usuário</button>
+      </form>
+      <!-- "Selecione o ID da pessoa que deseja atualizar" -->
+      <form action="/pessoas/atualiza" method="post">
+        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
+        <button class="button-form btn-primary btn-sm" type="submit">Atualizar usuário</button>
+      </form>
+      <!-- "Selecione o ID da pessoa que deseja deletar" -->
+      <form action="/pessoas/deleta" method="post">
+        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
+        <button class="button-form btn-danger btn-sm" type="submit">Deletar usuário</button>
+      </form>
     </section>
   </header>
   <table class="table table-dark">
@@ -37,12 +51,12 @@
     <tbody>
       <%pessoasList.forEach((pessoa) => {%>
       <tr>
-        <th scope="row"><%= pessoa._id %> </th>
-        <td><%= pessoa.nome %> </td>
-        <td><%= pessoa.sobrenome %> </td>
-        <td><%= pessoa.idade %> </td>
-        <td><%= pessoa.email %> </td>
-        <td><%= pessoa.profissao %> </td>
+        <th scope="row"><%= pessoa._id %></th>
+        <td><%= pessoa.nome %></td>
+        <td><%= pessoa.sobrenome %></td>
+        <td><%= pessoa.idade %></td>
+        <td><%= pessoa.email %></td>
+        <td><%= pessoa.profissao %></td>
       </tr>
       <%})%>
     </tbody>

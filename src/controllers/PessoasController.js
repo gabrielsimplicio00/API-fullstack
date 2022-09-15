@@ -47,8 +47,8 @@ class PessoaController {
 
     static async exibeUmaPessoa(req, res){
         try {
-            const { id } = req.params
-            const pessoa = await Pessoas.findById(id)
+            const { idPessoa } = req.body
+            const pessoa = await Pessoas.findById(idPessoa)
             return res.render('listaUmaPessoa', {
                 umaPessoa: pessoa
             })
@@ -61,8 +61,8 @@ class PessoaController {
 
     static async atualizaPessoaPagina(req, res) {
         try {
-            const { id } = req.params
-            const pessoa = await Pessoas.findById(id)
+            const { idPessoa } = req.body
+            const pessoa = await Pessoas.findById(idPessoa)
             return res.render('atualizaPessoaPagina', {
                 pessoa: pessoa
             })
@@ -84,10 +84,10 @@ class PessoaController {
                 email: req.body.email,
                 profissao: req.body.profissao
             }
-            const pessoaAtt = await Pessoas.findByIdAndUpdate(id, dados)
-            //NÃO ESTÁ MOSTRANDO OS DADOS ATUALIZADOS
+            await Pessoas.findByIdAndUpdate(id, dados)
+            const atualizado = await Pessoas.findById(id)  
             res.render('atualizaPessoa', {
-                pessoaAtt: pessoaAtt
+                pessoaAtt: atualizado
             })
         } catch (error) {
             return res.render('erro', {
@@ -98,9 +98,9 @@ class PessoaController {
 
     static async deletaPessoaPagina(req, res){
         try {
-            const { id } = req.params
+            const { idPessoa } = req.body
             return res.render('deletaPessoa', {
-                pessoaId: id
+                pessoaId: idPessoa
             })
         } catch (error) {
             return res.render('erro', {
