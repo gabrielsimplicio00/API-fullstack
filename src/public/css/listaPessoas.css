@@ -37,6 +37,10 @@ input {
 }
 
 .button-form {
+    width: 100px;
+}
+
+.button-form2 {
     width: 150px;
 }
 
@@ -64,9 +68,19 @@ input {
     border-radius: 8px;
 }
 
-ul {
-    flex: 0 1 31%;
-    padding: 15px auto 15px auto;
-    background-color: rgb(50, 50, 50);
-    border-radius: 10px;
+form {
+    width: fit-content;
+    margin: 0;
+}
+
+.td-long {
+    width: 20%;
+}
+
+.header {
+    text-align: center;
+}
+
+.td-form {
+    width: 5%;
 }

@@ -1,76 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
-  <title>Pessoas cadastradas</title>
-</head>
-<body>
-  <header>
-    <h1>Informações de <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
-    <section class="subtitle">
-      <button class="button1 btn-dark btn-sm">
-        <a href="/" class="caminho">Ir para a página de cadastro</a>
-      </button>
-      <button class="button2 btn-dark btn-sm">
-        <a href="/pessoas" class="caminho">Exibir pessoas cadastradas</a>
-      </button>
-    </section>
-    <section class="form-crud">
-      <!-- "Selecione o ID da pessoa que deseja atualizar" -->
-      <form action="/pessoas/atualiza" method="post">
-        <input type="hidden" name="idPessoa" id="idPessoa" placeholder="ID" value='<%= umaPessoa.id %>'>
-        <button class="button-form btn-primary btn-sm" type="submit">Atualizar usuário </button>
-      </form>
-      <!-- "Selecione o ID da pessoa que deseja deletar" -->
-      <form action="/pessoas/deleta" method="post">
-        <input type="hidden" name="idPessoa" id="idPessoa" placeholder="ID" value='<%= umaPessoa.id %>'>
-        <button class="button-form btn-danger btn-sm" type="submit">Deletar usuário</button>
-      </form>
-    </section>
-  </header>
 
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Sobreome</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Email</th>
-        <th scope="col">Profissão</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row"><%= umaPessoa._id %> </th>
-        <td><%= umaPessoa.nome %> </td>
-        <td><%= umaPessoa.sobrenome %> </td>
-        <td><%= umaPessoa.idade %> </td>
-        <td><%= umaPessoa.email %> </td>
-        <td><%= umaPessoa.profissao %> </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <!-- <div class="container">
-    
-      <ul style="list-style: none">
-        <li>ID: <%= umaPessoa._id %> </li>
-        <li>Nome: <%= umaPessoa.nome %> </li>
-        <li>Sobrenome: <%= umaPessoa.sobrenome %> </li>
-        <li>Idade: <%= umaPessoa.idade %> </li>
-        <li>Profissão: <%= umaPessoa.profissao %> </li>
-      </ul>
-    
-  </div> -->
-  
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/listaUmaPessoa.css" type="text/css">
+    <title>Pessoas cadastradas</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Informações de <%= `${umaPessoa.nome} ${umaPessoa.sobrenome}` %> </h1>
+      <section class="subtitle">
+        <button class="button1 btn-dark btn-sm">
+          <a href="/" class="caminho">Ir para a página de cadastro</a>
+        </button>
+        <button class="button2 btn-dark btn-sm">
+          <a href="/pessoas" class="caminho">Exibir pessoas cadastradas</a>
+        </button>
+      </section>
+    </header>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Email</th>
+          <th scope="col">Profissão</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><%= umaPessoa._id %> </th>
+          <td><%= umaPessoa.nome %> </td>
+          <td><%= umaPessoa.sobrenome %> </td>
+          <td><%= umaPessoa.idade %> </td>
+          <td><%= umaPessoa.email %> </td>
+          <td><%= umaPessoa.profissao %> </td>
+          <td>
+            <form action="/pessoas/atualiza" method="post" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" name="id" id="idPessoa" placeholder="ID" value="<%= umaPessoa._id %>" required>
+              <button class="button-form btn-primary btn-sm" type="submit">Atualizar</button>
+            </form>
+          </td>
+          <td>
+            <form action="/pessoas/deleta" method="post" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" name="id" id="idPessoa" placeholder="ID" value="<%= umaPessoa._id %>" required>
+              <button class="button-form btn-danger btn-sm" type="submit">Deletar</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
 </html>

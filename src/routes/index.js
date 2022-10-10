@@ -1,8 +1,7 @@
-// const express = require('express')
-// const pessoasRoutes = require('./pessoasRoutes.js')
+const express = require('express')
+const app = express()
+const pessoasRoutes = require('./pessoasRoutes.js')
 
-// const routes = (app) => {
-//     app.use(express.json(), pessoasRoutes)
-// }
+app.use('/', pessoasRoutes)
 
-// module.exports = routes
+module.exports = app

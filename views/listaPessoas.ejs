@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/listaPessoas.css" type="text/css">
-  <title>Pessoas cadastradas</title>
-</head>
-<body>
-  <header>
-    <h1>Pessoas cadastradas</h1>
-    <section class="subtitle">
-      <button class="btn-dark btn-sm">
-        <a href="/" class="caminho">Ir para a página de cadastro</a>
-      </button>
-    </section>
-    <section class="form-crud">
-      <!-- "Selecione o ID da pessoa que deseja ver" -->
-      <form action="/pessoas/exibe" method="post">
-        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
-        <button class="button-form btn-success btn-sm" type="submit">Buscar usuário</button>
-      </form>
-      <!-- "Selecione o ID da pessoa que deseja atualizar" -->
-      <form action="/pessoas/atualiza" method="post">
-        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
-        <button class="button-form btn-primary btn-sm" type="submit">Atualizar usuário</button>
-      </form>
-      <!-- "Selecione o ID da pessoa que deseja deletar" -->
-      <form action="/pessoas/deleta" method="post">
-        <input type="text" class="input-form" name="idPessoa" id="idPessoa" placeholder="ID" required>
-        <button class="button-form btn-danger btn-sm" type="submit">Deletar usuário</button>
-      </form>
-    </section>
-  </header>
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Sobreome</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Email</th>
-        <th scope="col">Profissão</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%pessoasList.forEach((pessoa) => {%>
-      <tr>
-        <th scope="row"><%= pessoa._id %></th>
-        <td><%= pessoa.nome %></td>
-        <td><%= pessoa.sobrenome %></td>
-        <td><%= pessoa.idade %></td>
-        <td><%= pessoa.email %></td>
-        <td><%= pessoa.profissao %></td>
-      </tr>
-      <%})%>
-    </tbody>
-  </table>
-</body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/listaPessoas.css" type="text/css">
+    <title>Pessoas cadastradas</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Pessoas cadastradas</h1>
+      <section class="subtitle">
+        <button class="btn-dark btn-sm">
+          <a href="/" class="caminho">Ir para a página de cadastro</a>
+        </button>
+      </section>
+    </header>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th class="header" scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Profissão</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%pessoasList.forEach((pessoa, index) => {%>
+        <tr>
+          <th class="header" scope="row"><%= ++index %> </th>
+          <td class="td-long"><%= pessoa.nome %></td>
+          <td class="td-long"><%= pessoa.sobrenome %></td>
+          <td class="td-long"><%= pessoa.profissao %></td>
+          <td class="td-form">
+            <form action="/pessoas/exibe" method="post" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" class="input-form" name="id" id="idPessoa" value="<%= pessoa._id %>" required>
+              <button class="button-form2 btn-success btn-sm" type="submit">Mais detalhes</button>
+            </form>
+          </td>
+          <td class="td-form">
+            <form action="/pessoas/atualiza" method="post" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" class="input-form" name="id" id="idPessoa" value="<%= pessoa._id %>" required>
+              <button class="button-form btn-primary btn-sm" type="submit">Atualizar</button>
+            </form>
+          </td>
+          <td class="td-form">
+            <form action="/pessoas/deleta" method="post" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" class="input-form" name="id" id="idPessoa" value="<%= pessoa._id %>" required>
+              <button class="button-form btn-danger btn-sm" type="submit">Deletar</button>
+            </form>
+          </td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </body>
+
 </html>
